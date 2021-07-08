@@ -30,47 +30,58 @@ function CarFetch() {
   };
   return (
     <div style={{ display: "block", margin: "auto" }}>
-      <form onSubmit={onSubmitHandler}>
-        <input
-          type="text"
-          name="search"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <input type="submit" value="Search" />
-      </form>
-      {product ? (
-        cars.map((car) => (
-          <>
-            <div
-              key={car.id}
-              style={{
-                margin: "16px",
-                display: "flex",
-                width: "50%",
-              }}
-            >
-              <img
-                src={`http://127.0.0.1:8000${car.image1}`}
-                alt="Image1"
-                style={{ height: "200px", width: "200px", margin: "0px 16px" }}
-              />
-              <div style={{ textAlign: "left" }}>
-                <h3>
-                  {car.company} {car.name}
-                </h3>
-                <h4>
-                  &#8377;
-                  {car.price} Lakhs
-                </h4>
-                <button onClick={() => onClickProductHandler(car.name)}>
-                  View
-                </button>
-              </div>
-            </div>
-          </>
-        ))
+      <input
+        type="text"
+        name="search"
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <button type="submit" onClick={onSubmitHandler}>
+        Search
+      </button>
+
+      {productSearch ? (
+        <>
+          {product ? (
+            cars.map((car) => (
+              <>
+                <div
+                  key={car.id}
+                  style={{
+                    margin: "16px",
+                    display: "flex",
+                    width: "50%",
+                  }}
+                >
+                  <img
+                    src={`http://127.0.0.1:8000${car.image1}`}
+                    alt="Image1"
+                    style={{
+                      height: "200px",
+                      width: "200px",
+                      margin: "0px 16px",
+                    }}
+                  />
+                  <div style={{ textAlign: "left" }}>
+                    <h3>
+                      {car.company} {car.name}
+                    </h3>
+                    <h4>
+                      &#8377;
+                      {car.price} Lakhs
+                    </h4>
+                    <button onClick={() => onClickProductHandler(car.name)}>
+                      View
+                    </button>
+                  </div>
+                </div>
+              </>
+            ))
+          ) : (
+            <CarDetails name={productName} />
+          )}
+        </>
       ) : (
-        <CarDetails name={productName} />
+        <CarDetails name={search} />
       )}
     </div>
   );

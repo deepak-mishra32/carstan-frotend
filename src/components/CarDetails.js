@@ -11,7 +11,7 @@ function CarDetails(props) {
         setCars(res.data[0]);
       })
       .catch((err) => console.log(err));
-  }, [props]);
+  }, [props.name]);
 
   const [initial_image, setInitial_image] = useState(true);
   const [image, setImage] = useState();
