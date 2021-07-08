@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CarDetails from "./CarDetails";
+import { Link } from "react-router-dom";
 
 function CarFetch() {
   const [cars, setCars] = useState([]);
@@ -14,20 +14,8 @@ function CarFetch() {
       .catch((err) => console.log(err));
   }, []);
 
-  const [product, setProduct] = useState(true);
-  const [productName, setProductName] = useState("");
   const [search, setSearch] = useState("");
-  const [productSearch, setProductSearch] = useState(true);
 
-  const onClickProductHandler = (name) => {
-    setProduct(false);
-    setProductName(name);
-  };
-
-  const onSubmitHandler = () => {
-    console.log(search);
-    setProductSearch(false);
-  };
   return (
     <div style={{ display: "block", margin: "auto" }}>
       <input
@@ -35,54 +23,54 @@ function CarFetch() {
         name="search"
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button type="submit" onClick={onSubmitHandler}>
-        Search
+      <button>
+        <Link
+          to={{
+            pathname: `/product/${search}`,
+          }}
+        >
+          Search
+        </Link>
       </button>
 
-      {productSearch ? (
+      {cars.map((car) => (
         <>
-          {product ? (
-            cars.map((car) => (
-              <>
-                <div
-                  key={car.id}
-                  style={{
-                    margin: "16px",
-                    display: "flex",
-                    width: "50%",
-                  }}
-                >
-                  <img
-                    src={`http://127.0.0.1:8000${car.image1}`}
-                    alt="Image1"
-                    style={{
-                      height: "200px",
-                      width: "200px",
-                      margin: "0px 16px",
-                    }}
-                  />
-                  <div style={{ textAlign: "left" }}>
-                    <h3>
-                      {car.company} {car.name}
-                    </h3>
-                    <h4>
-                      &#8377;
-                      {car.price} Lakhs
-                    </h4>
-                    <button onClick={() => onClickProductHandler(car.name)}>
-                      View
-                    </button>
-                  </div>
-                </div>
-              </>
-            ))
-          ) : (
-            <CarDetails name={productName} />
-          )}
+          <div
+            key={car.id}
+            style={{
+              margin: "16px",
+              display: "flex",
+              width: "50%",
+            }}
+          >
+            <img
+              src={`http://127.0.0.1:8000${car.image1}`}
+              alt="Image1"
+              style={{
+                height: "200px",
+                width: "200px",
+                margin: "0px 16px",
+              }}
+            />
+            <div style={{ textAlign: "left" }}>
+              <h3>
+                {car.company} {car.name}
+              </h3>
+              <h4>
+                &#8377;
+                {car.price} Lakhs
+              </h4>
+              <Link
+                to={{
+                  pathname: `/product/${car.name}`,
+                }}
+              >
+                View
+              </Link>
+            </div>
+          </div>
         </>
-      ) : (
-        <CarDetails name={search} />
-      )}
+      ))}
     </div>
   );
 }
