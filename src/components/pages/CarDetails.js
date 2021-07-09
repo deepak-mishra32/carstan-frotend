@@ -13,6 +13,7 @@ function CarDetails() {
       .then((res) => {
         console.log(res.data);
         setCars(res.data);
+        setError("");
       })
       .catch((err) => {
         setError(err.response.data.Error);
@@ -36,7 +37,7 @@ function CarDetails() {
             style={{
               margin: "16px",
               display: "flex",
-              width: "60%",
+              // width: "60%",
             }}
           >
             {initial_image ? (
@@ -61,16 +62,15 @@ function CarDetails() {
                 &#8377;
                 {cars.price} Lakhs
               </h4>
-              <h4>
-                Transmission-
-                {cars.transmission_type}
-              </h4>
+              <h4>Fuel Type- {cars.fuel_type}</h4>
+              <h4>Transmission- {cars.transmission_type}</h4>
               <h5>
                 Description <br /> {cars.detail}
               </h5>
             </div>
           </div>
-          <div style={{ width: "60%" }}>
+          {/* <div style={{ width: "60%" }}> */}
+          <div>
             {cars.image1 ? (
               <button onClick={() => onClickHandler(cars.image1)}>
                 <img

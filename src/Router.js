@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Routing, Switch, Route } from "react-router-dom";
 import App from "./App";
-import CarFetch from "./components/CarFetch";
-import CarDetails from "./components/CarDetails";
+import CarFetch from "./components/pages/CarFetch";
+import CarDetails from "./components/pages/CarDetails";
 import Navbar from "./components/navigations/Navbar";
 import NotFound from "./components/pages/NotFound";
 

@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 
 function CarFetch() {
   const [cars, setCars] = useState([]);
+  const url = "http://127.0.0.1:8000";
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/cars/`)
+      .get(`${url}/cars/`)
       .then((res) => {
         console.log(res.data);
         setCars(res.data);
@@ -14,11 +15,11 @@ function CarFetch() {
       .catch((err) => console.log(err));
   }, []);
 
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
 
   return (
     <div style={{ display: "block", margin: "auto" }}>
-      <input
+      {/* <input
         type="text"
         name="search"
         onChange={(e) => setSearch(e.target.value)}
@@ -31,7 +32,7 @@ function CarFetch() {
         >
           Search
         </Link>
-      </button>
+      </button> */}
 
       {cars.map((car) => (
         <>
@@ -44,7 +45,7 @@ function CarFetch() {
             }}
           >
             <img
-              src={`http://127.0.0.1:8000${car.image1}`}
+              src={`${url}${car.image1}`}
               alt="Image1"
               style={{
                 height: "200px",
