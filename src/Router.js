@@ -5,6 +5,7 @@ import CarFetch from "./components/pages/CarFetch";
 import CarDetails from "./components/pages/CarDetails";
 import Navbar from "./components/navigations/Navbar";
 import NotFound from "./components/pages/NotFound";
+import FilterCars from "./components/pages/FilterCars";
 
 function router() {
   return (
@@ -14,6 +15,7 @@ function router() {
         <Route path="/" exact component={App} />
         <Route path="/cars" exact component={CarFetch} />
         <Route path="/product/:name" exact component={CarDetails} />
+        <Route path="/filter" exact component={FilterCars} />
         <Route component={NotFound} />
       </Switch>
     </Routing>

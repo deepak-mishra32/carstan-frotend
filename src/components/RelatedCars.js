@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
 import Container from "@material-ui/core/Container";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-function CarFetch() {
-  const [cars, setCars] = useState([]);
+function RelatedCars(props) {
+  const [relatedCars, setRelatedCars] = useState([]);
   const url = "http://127.0.0.1:8000";
   useEffect(() => {
     axios
-      .get(`${url}/cars/`)
+      .get(`${url}/company/${props.company}`)
       .then((res) => {
         console.log(res.data);
-        setCars(res.data);
+        setRelatedCars(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
-
+  }, [props.company]);
   return (
-    <div style={{ display: "block", margin: "auto" }}>
+    <div style={{ display: "flex", margin: "auto" }}>
       <Container>
-        {cars.map((car) => (
+        {relatedCars.map((relatedCar) => (
           <>
             <div
-              key={car.id}
+              key={relatedCar.id}
               style={{
                 margin: "16px",
                 display: "flex",
@@ -30,7 +29,7 @@ function CarFetch() {
               }}
             >
               <img
-                src={`${url}${car.image1}`}
+                src={`${url}${relatedCar.image1}`}
                 alt="Image1"
                 style={{
                   height: "200px",
@@ -40,15 +39,15 @@ function CarFetch() {
               />
               <div style={{ textAlign: "left" }}>
                 <h3>
-                  {car.company} {car.name}
+                  {relatedCar.company} {relatedCar.name}
                 </h3>
                 <h4>
                   &#8377;
-                  {car.price} Lakhs
+                  {relatedCar.price} Lakhs
                 </h4>
                 <Link
                   to={{
-                    pathname: `/product/${car.name}`,
+                    pathname: `/product/${relatedCar.name}`,
                   }}
                 >
                   View
@@ -62,4 +61,4 @@ function CarFetch() {
   );
 }
 
-export default CarFetch;
+export default RelatedCars;

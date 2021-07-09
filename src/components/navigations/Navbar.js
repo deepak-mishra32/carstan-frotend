@@ -7,6 +7,7 @@ function Navbar() {
     <div style={{ display: "inline-flex" }}>
       <Link to="/">Home</Link> <br />
       <Link to="/cars">All Cars</Link>
+      <Link to="/filter">All Filter</Link>
       <Search />
     </div>
   );
