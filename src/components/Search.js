@@ -13,6 +13,7 @@ function Search() {
       />
       <button>
         <Link
+          id="link"
           to={{
             pathname: `/product/${search}`,
           }}

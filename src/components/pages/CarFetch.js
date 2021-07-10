@@ -17,8 +17,8 @@ function CarFetch() {
   }, []);
 
   return (
-    <div style={{ display: "block", margin: "auto" }}>
-      <Container>
+    <Container>
+      <div style={{ display: "block", margin: "auto", position: "relative" }}>
         {cars.map((car) => (
           <>
             <div
@@ -49,6 +49,7 @@ function CarFetch() {
                 <Link
                   to={{
                     pathname: `/product/${car.name}`,
+                    props: `${car.image1}`,
                   }}
                 >
                   View
@@ -57,8 +58,8 @@ function CarFetch() {
             </div>
           </>
         ))}
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 }
 

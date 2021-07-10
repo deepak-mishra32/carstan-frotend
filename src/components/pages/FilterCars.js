@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-function FilterCars() {
+
+function FilterCars(props) {
   const [cars, setCars] = useState([]);
-  const { transmission, category, company, price, fuel } = useParams();
+  const { category, company, transmission, fuel, price } = useParams();
   const [error, setError] = useState("");
 
   const url = "http://127.0.0.1:8000";
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/filter/manual/sedan/maruti/27/petrol")
-      // .get(`${url}/filter${transmission}${category}${company}${price}${fuel}`)
+      .get(
+        `${url}/filter/${transmission}/${category}/${company}/${price}/${fuel}`
+      )
       .then((res) => {
         console.log(res.data);
         setCars(res.data);
@@ -24,7 +26,7 @@ function FilterCars() {
       .catch((err) => {
         setError(err.response.data.Error);
       });
-  }, [cars.length]);
+  }, [cars.length, category, company, transmission, fuel, price]);
 
   return (
     <>

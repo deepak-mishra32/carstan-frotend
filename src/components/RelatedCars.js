@@ -8,16 +8,16 @@ function RelatedCars(props) {
   const url = "http://127.0.0.1:8000";
   useEffect(() => {
     axios
-      .get(`${url}/company/${props.company}`)
+      .get(`${url}/category/${props.type}`)
       .then((res) => {
         console.log(res.data);
         setRelatedCars(res.data);
       })
       .catch((err) => console.log(err));
-  }, [props.company]);
+  }, [props.type]);
   return (
-    <div style={{ display: "flex", margin: "auto" }}>
-      <Container>
+    <Container maxWidth="lg">
+      <div style={{ display: "flex", margin: "auto" }}>
         {relatedCars.map((relatedCar) => (
           <>
             <div
@@ -48,6 +48,7 @@ function RelatedCars(props) {
                 <Link
                   to={{
                     pathname: `/product/${relatedCar.name}`,
+                    props: `${relatedCar.image1}`,
                   }}
                 >
                   View
@@ -56,8 +57,8 @@ function RelatedCars(props) {
             </div>
           </>
         ))}
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 }
 

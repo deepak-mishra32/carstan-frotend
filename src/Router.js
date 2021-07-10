@@ -15,7 +15,11 @@ function router() {
         <Route path="/" exact component={App} />
         <Route path="/cars" exact component={CarFetch} />
         <Route path="/product/:name" exact component={CarDetails} />
-        <Route path="/filter" exact component={FilterCars} />
+        <Route
+          path="/filter/:transmission/:category/:company/:price/:fuel"
+          // exact
+          component={FilterCars}
+        />
         <Route component={NotFound} />
       </Switch>
     </Routing>
