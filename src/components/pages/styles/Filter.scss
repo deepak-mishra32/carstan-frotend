@@ -2,6 +2,7 @@
   margin-top: 8px;
   background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
   border: 0;
+  width: 200px;
   border-radius: 3;
   box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
   color: white;
@@ -11,7 +12,7 @@
     color: white;
   }
 }
-#option-div {
+#select {
   margin: 4px;
   min-height: 30px;
   min-width: 200px;

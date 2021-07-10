@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Filter from "../Filter";
+import Grid from "@material-ui/core/Grid";
 
 function FilterCars(props) {
   const [cars, setCars] = useState([]);
@@ -29,50 +31,57 @@ function FilterCars(props) {
   }, [cars.length, category, company, transmission, fuel, price]);
 
   return (
-    <>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        cars.map((car) => (
-          <>
-            <div
-              key={car.id}
-              style={{
-                margin: "16px",
-                display: "flex",
-                width: "50%",
-              }}
-            >
-              <img
-                src={`${url}${car.image1}`}
-                alt="Image1"
+    <Grid container spacing={1}>
+      <Grid container item sm={12} m={3} lg={2}>
+        <div style={{ margin: "16px" }}>
+          <Filter />
+        </div>
+      </Grid>
+      <Grid container item sm={12} m={3} lg={10}>
+        {error ? (
+          <p>{error}</p>
+        ) : (
+          cars.map((car) => (
+            <>
+              <div
+                key={car.id}
                 style={{
-                  height: "200px",
-                  width: "200px",
-                  margin: "0px 16px",
+                  margin: "16px",
+                  display: "flex",
+                  width: "50%",
                 }}
-              />
-              <div style={{ textAlign: "left" }}>
-                <h3>
-                  {car.company} {car.name}
-                </h3>
-                <h4>
-                  &#8377;
-                  {car.price} Lakhs
-                </h4>
-                <Link
-                  to={{
-                    pathname: `/product/${car.name}`,
+              >
+                <img
+                  src={`${url}${car.image1}`}
+                  alt="Image1"
+                  style={{
+                    height: "200px",
+                    width: "200px",
+                    margin: "0px 16px",
                   }}
-                >
-                  View
-                </Link>
+                />
+                <div style={{ textAlign: "left" }}>
+                  <h3>
+                    {car.company} {car.name}
+                  </h3>
+                  <h4>
+                    &#8377;
+                    {car.price} Lakhs
+                  </h4>
+                  <Link
+                    to={{
+                      pathname: `/product/${car.name}`,
+                    }}
+                  >
+                    View
+                  </Link>
+                </div>
               </div>
-            </div>
-          </>
-        ))
-      )}
-    </>
+            </>
+          ))
+        )}
+      </Grid>
+    </Grid>
   );
 }
 

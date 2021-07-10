@@ -21,9 +21,8 @@ function Filter() {
           name="Company"
           value={company}
           // defaultValue="Tata"
-          id="option-div"
           onChange={(e) => setCompany(e.target.value)}
-          id="option-div"
+          id="select"
         >
           <option value="Company">Company</option>
           <option value="Tata">Tata</option>
@@ -39,7 +38,7 @@ function Filter() {
           value={category}
           // defaultValue="Hatchback"
           onChange={(e) => setCategory(e.target.value)}
-          id="option-div"
+          id="select"
         >
           <option value="Category">Category</option>
           <option value="Hatchback">Hatchback</option>
@@ -54,7 +53,7 @@ function Filter() {
           value={transmission}
           // defaultValue="Automatic"
           onChange={(e) => setTransmission(e.target.value)}
-          id="option-div"
+          id="select"
         >
           <option value="Transmission">Transmission</option>
           <option value="Automatic">Automatic</option>
@@ -67,7 +66,7 @@ function Filter() {
           value={price}
           // defaultValue="40"
           onChange={(e) => setPrice(e.target.value)}
-          id="option-div"
+          id="select"
         >
           <option value="Price">&#8377; Price</option>
           <option value="3">&#8377; 1 Lakhs-3 Lakhs</option>
@@ -84,7 +83,7 @@ function Filter() {
           value={fuel}
           // defaultValue="Petrol"
           onChange={(e) => setFuel(e.target.value)}
-          id="option-div"
+          id="select"
         >
           <option value="Fuel">Fuel</option>
           <option value="Petrol">Petrol</option>

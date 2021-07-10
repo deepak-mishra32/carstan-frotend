@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Container from "@material-ui/core/Container";
+import Filter from "../Filter";
+import Grid from "@material-ui/core/Grid";
+import CarsDisplay from "./CarsDisplay";
 
 function CarFetch() {
   const [cars, setCars] = useState([]);
@@ -17,49 +19,31 @@ function CarFetch() {
   }, []);
 
   return (
-    <Container>
-      <div style={{ display: "block", margin: "auto", position: "relative" }}>
-        {cars.map((car) => (
-          <>
-            <div
-              key={car.id}
-              style={{
-                margin: "16px",
-                display: "flex",
-                width: "50%",
-              }}
-            >
-              <img
-                src={`${url}${car.image1}`}
-                alt="Image1"
-                style={{
-                  height: "200px",
-                  width: "200px",
-                  margin: "0px 16px",
-                }}
-              />
-              <div style={{ textAlign: "left" }}>
-                <h3>
-                  {car.company} {car.name}
-                </h3>
-                <h4>
-                  &#8377;
-                  {car.price} Lakhs
-                </h4>
-                <Link
-                  to={{
-                    pathname: `/product/${car.name}`,
-                    props: `${car.image1}`,
-                  }}
-                >
-                  View
-                </Link>
-              </div>
-            </div>
-          </>
-        ))}
-      </div>
-    </Container>
+    <Grid container spacing={1}>
+      <Grid container item sm={12} m={3} lg={2}>
+        <div style={{ margin: "16px" }}>
+          <Filter />
+        </div>
+      </Grid>
+      <Grid container item sm={12} m={3} lg={10}>
+        <CarsDisplay props={cars.slice(0, 4)} />
+      </Grid>
+      <Grid container item sm={12} m={3} lg={10}>
+        <CarsDisplay props={cars.slice(4, 9)} />
+      </Grid>
+      <Grid container item sm={12} m={3} lg={10}>
+        <CarsDisplay props={cars.slice(9, 14)} />
+      </Grid>
+      <Grid container item sm={12} m={3} lg={10}>
+        <CarsDisplay props={cars.slice(14, 19)} />
+      </Grid>
+      <Grid container item sm={12} m={3} lg={10}>
+        <CarsDisplay props={cars.slice(19, 24)} />
+      </Grid>
+      <Grid container item sm={12} m={3} lg={10}>
+        <CarsDisplay props={cars.slice(23, 24)} />
+      </Grid>
+    </Grid>
   );
 }
 

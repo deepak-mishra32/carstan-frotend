@@ -12,7 +12,7 @@ function App() {
           </div>
         </Grid>
         <Grid container item sm={12} m={9} lg={9}>
-          <h1>Hello</h1>
+          <h1>Hello! From Carstan</h1>
         </Grid>
       </Grid>
     </div>
