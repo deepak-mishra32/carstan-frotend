@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL, IMG_URL } from "../utils/Constant";
 
 function RelatedCars(props) {
   const [relatedCars, setRelatedCars] = useState([]);
-  const url = "http://127.0.0.1:8000";
   useEffect(() => {
     axios
-      .get(`${url}/category/${props.type}`)
+      .get(`${BASE_URL}/category/${props.type}`)
       .then((res) => {
         console.log(res.data);
         setRelatedCars(res.data);
@@ -29,7 +29,7 @@ function RelatedCars(props) {
               }}
             >
               <img
-                src={`${url}${relatedCar.image1}`}
+                src={`${IMG_URL}${relatedCar.image1}`}
                 alt="Image1"
                 style={{
                   height: "200px",

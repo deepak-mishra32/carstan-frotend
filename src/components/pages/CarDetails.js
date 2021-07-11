@@ -1,98 +1,64 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import Container from "@material-ui/core/Container";
 import RelatedCars from "../RelatedCars";
 import Filter from "../Filter";
 import Grid from "@material-ui/core/Grid";
+import { BASE_URL, IMG_URL } from "../../utils/Constant";
+import "./styles/CarDetails.css";
 
-function CarDetails(props) {
+function CarDetails() {
   const [cars, setCars] = useState([]);
   const { name } = useParams();
   const [error, setError] = useState("");
+  const [image, setImage] = useState();
 
-  const url = "http://127.0.0.1:8000";
+  const onClickHandler = useCallback((new_image) => {
+    setImage(new_image);
+  }, []);
+
   useEffect(() => {
     axios
-      .get(`${url}/product/${name}`)
+      .get(`${BASE_URL}/product/${name}`)
       .then((res) => {
         console.log(res.data);
         setCars(res.data);
         setError("");
+        setImage(res.data.image1);
       })
       .catch((err) => {
         setError(err.response.data.Error);
       });
   }, [name]);
 
-  const [initial_image, setInitial_image] = useState(true);
-  const [image, setImage] = useState(props.props);
-
-  const onClickHandler = (new_image) => {
-    setInitial_image(false);
-    setImage(new_image);
-  };
   return (
-    <Grid container spacing={1}>
-      <Grid container item sm={12} m={3} lg={2}>
+    <Grid container spacing={0}>
+      <Grid item sm={12} md={2} lg={2}>
         <div style={{ margin: "16px" }}>
           <Filter />
+          <div style={{ margin: "16px" }}>Others</div>
         </div>
       </Grid>
-      <Grid container item sm={12} m={3} lg={10}>
-        {error ? (
-          <p>{error}</p>
-        ) : (
-          <div style={{ display: "block", margin: "auto" }}>
-            <div
-              style={{
-                margin: "16px",
-                display: "flex",
-                // width: "60%",
-              }}
-            >
-              {initial_image ? (
-                <img
-                  src={`${url}${cars.image1}`}
-                  alt="Image1"
-                  style={{
-                    height: "300px",
-                    // width: "400px",
-                    margin: "0px 16px",
-                  }}
-                />
-              ) : (
-                <img
-                  src={`${url}${image}`}
-                  alt="Image1"
-                  style={{
-                    height: "300px",
-                    // width: "400px",
-                    margin: "0px 16px",
-                  }}
-                />
-              )}
-
-              <div style={{ textAlign: "left" }}>
-                <h3>
-                  {cars.car_type}-{cars.company} {cars.name}
-                </h3>
-                <h4>
-                  &#8377;
-                  {cars.price} Lakhs
-                </h4>
-                <h4>Fuel Type- {cars.fuel_type}</h4>
-                <h4>Transmission- {cars.transmission_type}</h4>
-                <h5>
-                  Description <br /> {cars.detail}
-                </h5>
-              </div>
-            </div>
+      <Grid item sm={12} md={10} lg={10}>
+        <Grid container spacing={3} sm={12} md={10} lg={10}>
+          <Grid item sm={12} md={6} lg={6}>
             <div>
+              <img
+                src={`${IMG_URL}${image}`}
+                alt="Image1"
+                style={{
+                  height: "300px",
+                  margin: "0px 16px",
+                  width: "400px",
+                  objectFit: "contain",
+                }}
+              />
+            </div>
+            <div className="thumbnails">
               {cars.image1 ? (
                 <button onClick={() => onClickHandler(cars.image1)}>
                   <img
-                    src={`${url}${cars.image1}`}
+                    src={`${IMG_URL}${cars.image1}`}
                     alt="Image1"
                     style={{
                       height: "100px",
@@ -105,7 +71,7 @@ function CarDetails(props) {
               {cars.image2 ? (
                 <button onClick={() => onClickHandler(cars.image2)}>
                   <img
-                    src={`${url}${cars.image2}`}
+                    src={`${IMG_URL}${cars.image2}`}
                     alt="Image2"
                     style={{
                       height: "100px",
@@ -118,7 +84,7 @@ function CarDetails(props) {
               {cars.image3 ? (
                 <button onClick={() => onClickHandler(cars.image3)}>
                   <img
-                    src={`${url}${cars.image3}`}
+                    src={`${IMG_URL}${cars.image3}`}
                     alt="Image3"
                     style={{
                       height: "100px",
@@ -131,7 +97,7 @@ function CarDetails(props) {
               {cars.image4 ? (
                 <button onClick={() => onClickHandler(cars.image4)}>
                   <img
-                    src={`${url}${cars.image4}`}
+                    src={`${IMG_URL}${cars.image4}`}
                     alt="Image4"
                     style={{
                       height: "100px",
@@ -142,8 +108,24 @@ function CarDetails(props) {
                 </button>
               ) : null}
             </div>
-          </div>
-        )}
+          </Grid>
+          <Grid item sm={12} md={6} lg={6}>
+            <div style={{ textAlign: "left" }}>
+              <h3>
+                {cars.car_type}-{cars.company} {cars.name}
+              </h3>
+              <h4>
+                &#8377;
+                {cars.price} Lakhs
+              </h4>
+              <h4>Fuel Type- {cars.fuel_type}</h4>
+              <h4>Transmission- {cars.transmission_type}</h4>
+              <h5>
+                Description <br /> {cars.detail}
+              </h5>
+            </div>
+          </Grid>
+        </Grid>
         <div>
           <h2>Related Cars</h2>
           <RelatedCars type={cars.car_type} />

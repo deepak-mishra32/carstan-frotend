@@ -4,17 +4,17 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Filter from "../Filter";
 import Grid from "@material-ui/core/Grid";
+import { BASE_URL, IMG_URL } from "../../utils/Constant";
 
 function FilterCars(props) {
   const [cars, setCars] = useState([]);
   const { category, company, transmission, fuel, price } = useParams();
   const [error, setError] = useState("");
 
-  const url = "http://127.0.0.1:8000";
   useEffect(() => {
     axios
       .get(
-        `${url}/filter/${transmission}/${category}/${company}/${price}/${fuel}`
+        `${BASE_URL}/filter/${transmission}/${category}/${company}/${price}/${fuel}`
       )
       .then((res) => {
         console.log(res.data);
@@ -52,7 +52,7 @@ function FilterCars(props) {
                 }}
               >
                 <img
-                  src={`${url}${car.image1}`}
+                  src={`${IMG_URL}${car.image1}`}
                   alt="Image1"
                   style={{
                     height: "200px",
