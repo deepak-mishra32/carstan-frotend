@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAC;EACN,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,OAAO;CACf",
+    "sources": [
+        "CarDisplay.scss"
+    ],
+    "names": [],
+    "file": "CarDisplay.css"
+}
