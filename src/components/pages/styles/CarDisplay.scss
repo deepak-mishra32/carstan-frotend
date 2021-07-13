@@ -1,4 +1,15 @@
 #button {
   background-color: #ce1212;
   color: #eeebdd;
+  border: none;
+}
+.card {
+  max-width: 300;
+  margin: 8px;
+  object-fit: contain;
+  box-shadow: 1px 8px 6px -5px #777;
+}
+.img {
+  max-height: 180px;
+  object-fit: cover;
 }

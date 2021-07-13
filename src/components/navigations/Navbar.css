@@ -1,0 +1,19 @@
+#nav {
+  -webkit-box-shadow: 1px 2px 6px 1px #636060;
+          box-shadow: 1px 2px 6px 1px #636060;
+  margin-bottom: 8px;
+}
+
+#nav-items {
+  margin-right: 8px;
+  color: #d3d3d3;
+}
+
+#logo {
+  background-color: #d3d3d3;
+  height: 50px;
+  width: 100px;
+  padding: 4px;
+  border-radius: 5%;
+}
+/*# sourceMappingURL=Navbar.css.map */

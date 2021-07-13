@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { Link } from "react-router-dom";
 import Filter from "../Filter";
-import Grid from "@material-ui/core/Grid";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import CarsDisplay from "./CarsDisplay";
 import { BASE_URL, PAGE_SIZE } from "../../utils/Constant";
 import "./styles/Filter.css";
@@ -27,21 +28,23 @@ function CarFetch() {
   }, []);
 
   return (
-    <Grid container spacing={0}>
-      <Grid item sm={12} m={3} lg={3}>
-        <div style={{ margin: "16px" }}>
-          <Filter />
-        </div>
-      </Grid>
-      <Grid item sm={12} m={9} lg={9}>
-        <CarsDisplay props={cars.slice(0, lastIndex)} />
-        {lastIndex <= cars.length && (
-          <button className="root" onClick={loadHandler}>
-            Load More
-          </button>
-        )}
-      </Grid>
-    </Grid>
+    <Container fluid>
+      <Row>
+        <Col sm={12} md={2} lg={2}>
+          <div>
+            <Filter />
+          </div>
+        </Col>
+        <Col sm={12} md={10} lg={10}>
+          <CarsDisplay props={cars.slice(0, lastIndex)} />
+          {lastIndex <= cars.length && (
+            <button className="root" onClick={loadHandler}>
+              Load More
+            </button>
+          )}
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

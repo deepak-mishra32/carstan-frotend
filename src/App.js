@@ -1,21 +1,23 @@
 import "./App.css";
 import Filter from "./components/Filter";
-import Grid from "@material-ui/core/Grid";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 function App() {
   return (
-    <div className="App">
-      <Grid container spacing={0}>
-        <Grid container item sm={12} m={3} lg={3}>
-          <div style={{ margin: "16px" }}>
+    <Container fluid className="App">
+      <Row>
+        <Col sm={12} md={3} lg={3}>
+          <div>
             <Filter />
           </div>
-        </Grid>
-        <Grid container item sm={12} m={9} lg={9}>
+        </Col>
+        <Col sm={12} m={9} lg={9}>
           <h1>Hello! From Carstan</h1>
-        </Grid>
-      </Grid>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
