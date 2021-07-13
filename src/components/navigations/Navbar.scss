@@ -1,11 +1,19 @@
 #nav {
-  box-shadow: 1px 2px 6px 1px rgb(99, 96, 96);
-  margin-bottom: 8px;
+  box-shadow: 1px 1px 6px 1px rgb(0, 0, 0);
+  margin-bottom: 16px;
 }
 #nav-items {
-  //   justify-content: space-around;
-  margin-right: 8px;
+  margin-right: 26px;
   color: #d3d3d3;
+  padding: 10px;
+  &:active{
+    background-color: #f5f3f4;
+  };
+  &:hover{
+    background-color: #a4161a;
+    border-radius: 5%;
+    color:white;
+  };
 }
 #logo {
   background-color: #d3d3d3;

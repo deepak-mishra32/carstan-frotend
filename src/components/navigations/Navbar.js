@@ -9,13 +9,15 @@ function NavbarTop() {
   return (
     <Navbar collapseOnSelect expand="lg" sticky="top" id="nav">
       <Container fluid>
-        <Navbar.Brand href="#home">
-          <img
-            src={logo}
-            id="logo"
-            className="d-inline-block align-top"
-            alt="Carstan"
-          />
+        <Navbar.Brand>
+          <Link to="/">
+            <img
+              src={logo}
+              id="logo"
+              className="d-inline-block align-top"
+              alt="Carstan"
+              />
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse
