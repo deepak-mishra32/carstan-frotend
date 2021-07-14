@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
 import "../components/pages/styles/Filter.css";
 
 function Filter() {
@@ -20,7 +19,6 @@ function Filter() {
         <select
           name="Company"
           value={company}
-          // defaultValue="Tata"
           onChange={(e) => setCompany(e.target.value)}
           id="select"
         >
@@ -36,7 +34,6 @@ function Filter() {
         <select
           name="Category"
           value={category}
-          // defaultValue="Hatchback"
           onChange={(e) => setCategory(e.target.value)}
           id="select"
         >
@@ -51,7 +48,6 @@ function Filter() {
         <select
           name="Transmission"
           value={transmission}
-          // defaultValue="Automatic"
           onChange={(e) => setTransmission(e.target.value)}
           id="select"
         >
@@ -64,7 +60,6 @@ function Filter() {
         <select
           name="price"
           value={price}
-          // defaultValue="40"
           onChange={(e) => setPrice(e.target.value)}
           id="select"
         >
@@ -81,7 +76,6 @@ function Filter() {
         <select
           name="fuel"
           value={fuel}
-          // defaultValue="Petrol"
           onChange={(e) => setFuel(e.target.value)}
           id="select"
         >
@@ -92,14 +86,15 @@ function Filter() {
         </select>
       </div>
       <Link
+        id="link"
         to={{
           pathname: `/filter/${transmission}/${category}/${company}/${price}/${fuel}`,
         }}
-        id="link"
+        onClick={onClickHandle}
       >
-        <Button onClick={onClickHandle} className="root">
+        <button variant="outlined-primary" id="link-filter">
           Apply Filter
-        </Button>
+        </button>
       </Link>
     </div>
   );

@@ -1,3 +1,14 @@
+#img-gallery {
+  width: 100px;
+  height: 100px;
+  margin: 8px;
+}
+
+#img-gallery:hover {
+  -webkit-box-shadow: 1px 1px 6px 3px black;
+          box-shadow: 1px 1px 6px 3px black;
+}
+
 .thumbnails {
   display: -webkit-box;
   display: -ms-flexbox;

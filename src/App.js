@@ -8,12 +8,10 @@ function App() {
   return (
     <Container fluid className="App">
       <Row>
-        <Col sm={12} md={3} lg={3}>
-          <div>
-            <Filter />
-          </div>
+        <Col sm={12} md={2} lg={2}>
+          <Filter />
         </Col>
-        <Col sm={12} m={9} lg={9}>
+        <Col sm={12} md={10} lg={10}>
           <h1>Hello! From Carstan</h1>
         </Col>
       </Row>

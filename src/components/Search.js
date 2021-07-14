@@ -1,26 +1,33 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
+import "./Search.css";
 
 function Search() {
   const [search, setSearch] = useState("");
   return (
     <div>
-      <input
-        type="text"
-        name="search"
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <button>
+      <Form className="d-flex">
+        <FormControl
+          type="search"
+          placeholder="Search"
+          className="mr-2"
+          id="search-input"
+          aria-label="Search"
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <Link
           id="link"
           to={{
             pathname: `/product/${search}`,
           }}
         >
-          Search
+          <Button id="search-btn">Search</Button>
         </Link>
-      </button>
+      </Form>
     </div>
   );
 }

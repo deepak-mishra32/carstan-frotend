@@ -5,19 +5,19 @@
 }
 
 #nav-items {
+  width: 70px;
+  text-align: center;
   margin-right: 26px;
   color: #d3d3d3;
   padding: 10px;
-}
-
-#nav-items:active {
-  background-color: #f5f3f4;
 }
 
 #nav-items:hover {
   background-color: #a4161a;
   border-radius: 5%;
   color: white;
+  -webkit-box-shadow: 1px 1px 6px 1px black;
+          box-shadow: 1px 1px 6px 1px black;
 }
 
 #logo {

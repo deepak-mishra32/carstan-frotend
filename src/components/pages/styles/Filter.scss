@@ -1,16 +1,19 @@
-.root {
-  margin: 8px;
-  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
-  border: 0;
-  width: 200px;
-  border-radius: 3;
-  box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
-  color: black;
-  height: 48;
-  padding: 10px 30px;
+#link-filter {
+  display: block;
+  margin: auto;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 5%;
+  border: none;
+  background-color: #ba181b;
   &:hover {
-    color: white;
+    // color: #f5f3f4;
+    text-shadow: 2px 2px 5px #ff0000;
+    background-color: #660708;
+    box-shadow: 1px 1px 6px 1px rgb(0, 0, 0);
   }
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 #select {
   margin: 4px;

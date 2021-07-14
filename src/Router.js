@@ -6,23 +6,26 @@ import CarDetails from "./components/pages/CarDetails";
 import NavbarTop from "./components/navigations/Navbar";
 import NotFound from "./components/pages/NotFound";
 import FilterCars from "./components/pages/FilterCars";
+import "./Router.css";
 
 function router() {
   return (
-    <Routing>
-      <NavbarTop />
-      <Switch>
-        <Route path="/" exact component={App} />
-        <Route path="/cars" exact component={CarFetch} />
-        <Route path="/product/:name" exact component={CarDetails} />
-        <Route
-          path="/filter/:transmission/:category/:company/:price/:fuel"
-          // exact
-          component={FilterCars}
-        />
-        <Route component={NotFound} />
-      </Switch>
-    </Routing>
+    <div className="app">
+      <Routing>
+        <NavbarTop />
+        <Switch>
+          <Route path="/" exact component={App} />
+          <Route path="/cars" exact component={CarFetch} />
+          <Route path="/product/:name" exact component={CarDetails} />
+          <Route
+            path="/filter/:transmission/:category/:company/:price/:fuel"
+            // exact
+            component={FilterCars}
+          />
+          <Route component={NotFound} />
+        </Switch>
+      </Routing>
+    </div>
   );
 }
 

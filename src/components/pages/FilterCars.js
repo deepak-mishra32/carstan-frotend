@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import Filter from "../Filter";
-import Grid from "@material-ui/core/Grid";
-import { BASE_URL, IMG_URL } from "../../utils/Constant";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { BASE_URL } from "../../utils/Constant";
+import CarsDisplay from "./CarsDisplay";
 
 function FilterCars(props) {
   const [cars, setCars] = useState([]);
@@ -31,57 +33,16 @@ function FilterCars(props) {
   }, [cars.length, category, company, transmission, fuel, price]);
 
   return (
-    <Grid container spacing={1}>
-      <Grid container item sm={12} m={3} lg={2}>
-        <div style={{ margin: "16px" }}>
+    <Container fluid>
+      <Row>
+        <Col sm={12} md={2} lg={2}>
           <Filter />
-        </div>
-      </Grid>
-      <Grid container item sm={12} m={3} lg={10}>
-        {error ? (
-          <p>{error}</p>
-        ) : (
-          cars.map((car) => (
-            <>
-              <div
-                key={car.id}
-                style={{
-                  margin: "16px",
-                  display: "flex",
-                  width: "50%",
-                }}
-              >
-                <img
-                  src={`${IMG_URL}${car.image1}`}
-                  alt="Image1"
-                  style={{
-                    height: "200px",
-                    width: "200px",
-                    margin: "0px 16px",
-                  }}
-                />
-                <div style={{ textAlign: "left" }}>
-                  <h3>
-                    {car.company} {car.name}
-                  </h3>
-                  <h4>
-                    &#8377;
-                    {car.price} Lakhs
-                  </h4>
-                  <Link
-                    to={{
-                      pathname: `/product/${car.name}`,
-                    }}
-                  >
-                    View
-                  </Link>
-                </div>
-              </div>
-            </>
-          ))
-        )}
-      </Grid>
-    </Grid>
+        </Col>
+        <Col sm={12} md={10} lg={10}>
+          {error ? <p>{error}</p> : <CarsDisplay props={cars} />}
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

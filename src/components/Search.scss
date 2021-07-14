@@ -1,0 +1,28 @@
+#search-input {
+  border: 1px solid #f5f3f4;
+  background-color: #161a1d;
+  color: #f5f3f4;
+  &:focus {
+    outline: none;
+    box-shadow: 1px 1px 16px 6px #0b090a;
+  }
+  &:hover {
+    box-shadow: 1px 1px 16px 6px #0b090a;
+  }
+}
+#search-btn {
+  background-color: #ba181b;
+  outline: none;
+  border: none;
+  &:hover {
+    box-shadow: 1px 1px 16px 6px #0b090a;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 1px 1px 16px 6px #0b090a;
+  }
+  &:active {
+    background-color: #f5f3f4;
+    color: #ba181b;
+  }
+}

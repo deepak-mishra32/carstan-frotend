@@ -16,7 +16,7 @@ function NavbarTop() {
               id="logo"
               className="d-inline-block align-top"
               alt="Carstan"
-              />
+            />
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

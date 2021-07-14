@@ -1,3 +1,11 @@
+#img-gallery {
+  width: 100px;
+  height: 100px;
+  margin: 8px;
+  &:hover {
+    box-shadow: 1px 1px 6px 3px rgb(0, 0, 0);
+  }
+}
 .thumbnails {
   display: flex;
   flex-wrap: nowrap;
@@ -8,7 +16,6 @@
 .thumbnails::-webkit-scrollbar {
   display: none;
 }
-
 /* Hide scrollbar for IE, Edge and Firefox */
 .thumbnails {
   -ms-overflow-style: none; /* IE and Edge */

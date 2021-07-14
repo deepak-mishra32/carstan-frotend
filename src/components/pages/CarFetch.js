@@ -31,14 +31,16 @@ function CarFetch() {
     <Container fluid>
       <Row>
         <Col sm={12} md={2} lg={2}>
-          <div>
-            <Filter />
-          </div>
+          <Filter />
         </Col>
         <Col sm={12} md={10} lg={10}>
           <CarsDisplay props={cars.slice(0, lastIndex)} />
           {lastIndex <= cars.length && (
-            <button className="root" onClick={loadHandler}>
+            <button
+              id="link-filter"
+              // style={{ margin: "8px" }}
+              onClick={loadHandler}
+            >
               Load More
             </button>
           )}
