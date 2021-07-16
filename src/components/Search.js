@@ -13,7 +13,7 @@ function Search() {
       <Form className="d-flex">
         <FormControl
           type="search"
-          placeholder="Search"
+          placeholder="Car Name"
           className="mr-2"
           id="search-input"
           aria-label="Search"
@@ -25,7 +25,9 @@ function Search() {
             pathname: `/product/${search}`,
           }}
         >
-          <Button id="search-btn">Search</Button>
+          <Button id="search-btn" type="reset">
+            Search
+          </Button>
         </Link>
       </Form>
     </div>

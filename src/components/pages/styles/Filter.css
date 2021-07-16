@@ -21,4 +21,10 @@
   min-height: 30px;
   min-width: 200px;
 }
+
+@media (max-width: 1000px) {
+  #filter {
+    display: none;
+  }
+}
 /*# sourceMappingURL=Filter.css.map */

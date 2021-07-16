@@ -20,3 +20,8 @@
   min-height: 30px;
   min-width: 200px;
 }
+#filter {
+  @media (max-width: 1000px) {
+    display: none;
+  }
+}
