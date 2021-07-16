@@ -16,13 +16,13 @@ function CarsDisplay(props) {
       <Row>
         {cars.map((car) => (
           <Col sm={12} md={4} lg={4}>
-            <Card className="cards">
+            <Card className="mb-4" id="class">
               <Card.Img
                 className="img"
                 src={`${IMG_URL}${car.image1}`}
                 title={car.name}
               />
-              <Card.Body>
+              <Card.Body id="text">
                 <Card.Title>
                   {car.company} {car.name}
                 </Card.Title>

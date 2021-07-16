@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { BASE_URL, IMG_URL } from "../../utils/Constant";
 import "./styles/CarDetails.css";
+import Alert from "react-bootstrap/Alert";
 
 function CarDetails() {
   const [cars, setCars] = useState([]);
@@ -44,17 +45,13 @@ function CarDetails() {
             <h3>No Cars Available</h3>
           ) : (
             <Row>
-              <Col sm={12} md={6} lg={6}>
+              <Col sm={12} md={6} lg={6} className="align-items-center">
                 <div>
                   <img
                     src={`${IMG_URL}${image}`}
                     alt="Image1"
-                    style={{
-                      height: "300px",
-                      margin: "0px 16px",
-                      width: "400px",
-                      objectFit: "contain",
-                    }}
+                    class="img-fluid"
+                    id="Detail-img"
                   />
                 </div>
                 <div className="thumbnails">
@@ -93,19 +90,25 @@ function CarDetails() {
                 </div>
               </Col>
               <Col sm={12} md={6} lg={6}>
-                <div style={{ textAlign: "left" }}>
-                  <h3>
-                    {cars.car_type}-{cars.company} {cars.name}
-                  </h3>
-                  <h4>
+                <div>
+                  <div id="mobile-view-heading">
+                    {cars.company} {cars.name}
+                  </div>
+                  <Alert variant="dark">
+                    <h3 id="car-heading">
+                      {cars.company} {cars.name}
+                    </h3>
+                  </Alert>
+                  <h5 id="detail">{cars.detail}</h5>
+                  <hr />
+                  <h4 id="car-subHeading">
                     &#8377;
-                    {cars.price} Lakhs
+                    {cars.price} Lakhs only
                   </h4>
-                  <h4>Fuel Type- {cars.fuel_type}</h4>
-                  <h4>Transmission- {cars.transmission_type}</h4>
-                  <h5>
-                    Description <br /> {cars.detail}
-                  </h5>
+                  <h4 id="car-subHeading">Fuel Type- {cars.fuel_type}</h4>
+                  <h4 id="car-subHeading">
+                    Transmission- {cars.transmission_type}
+                  </h4>
                 </div>
               </Col>
             </Row>

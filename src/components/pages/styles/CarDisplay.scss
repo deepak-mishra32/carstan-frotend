@@ -1,14 +1,18 @@
 #button {
-  background-color: #ce1212;
+  background-color: #ba181b;
   color: #eeebdd;
   border: none;
+  &:hover {
+    box-shadow: 1px 1px 6px 1px rgb(0, 0, 0);
+  }
 }
-.card {
+#card {
   max-width: 300;
-  margin: 8px;
-  box-shadow: 1px 8px 6px -5px #0b090a;
 }
 .img {
   max-height: 180px;
   object-fit: cover;
+}
+#text {
+  text-shadow: 1px 1px 8px #000000;
 }

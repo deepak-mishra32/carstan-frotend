@@ -1,19 +1,25 @@
 #button {
-  background-color: #ce1212;
+  background-color: #ba181b;
   color: #eeebdd;
   border: none;
 }
 
-.card {
+#button:hover {
+  -webkit-box-shadow: 1px 1px 6px 1px black;
+          box-shadow: 1px 1px 6px 1px black;
+}
+
+#card {
   max-width: 300;
-  margin: 8px;
-  -webkit-box-shadow: 1px 8px 6px -5px #0b090a;
-          box-shadow: 1px 8px 6px -5px #0b090a;
 }
 
 .img {
   max-height: 180px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#text {
+  text-shadow: 1px 1px 8px #000000;
 }
 /*# sourceMappingURL=CarDisplay.css.map */

@@ -5,9 +5,40 @@
   font-family: "Source Serif Pro", serif;
   background-color: #161a1d;
   color: #d3d3d3;
+  text-shadow: 1px 1px 8px #000000;
 }
 
 #link {
   text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0b090a;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ba181b;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: red;
+}
+
+::-moz-selection {
+  color: #f5f3f4;
+  background: #a4161a;
+}
+
+::selection {
+  color: #f5f3f4;
+  background: #a4161a;
 }
 /*# sourceMappingURL=Router.css.map */
