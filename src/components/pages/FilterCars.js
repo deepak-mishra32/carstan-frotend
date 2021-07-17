@@ -7,6 +7,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BASE_URL } from "../../utils/Constant";
 import CarsDisplay from "./CarsDisplay";
+import "../pages/styles/Filter.css";
+import MobileFilter from "../MobileFilter";
 
 function FilterCars(props) {
   const [cars, setCars] = useState([]);
@@ -36,7 +38,12 @@ function FilterCars(props) {
     <Container fluid>
       <Row>
         <Col sm={12} md={2} lg={2}>
-          <Filter />
+          <div id="filter">
+            <Filter />
+          </div>
+          <div id="mobile-filter">
+            <MobileFilter />
+          </div>
         </Col>
         <Col sm={12} md={10} lg={10}>
           {error ? <p>{error}</p> : <CarsDisplay props={cars} />}

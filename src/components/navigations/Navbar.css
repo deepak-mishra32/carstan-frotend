@@ -27,4 +27,15 @@
   padding: 4px;
   border-radius: 5%;
 }
+
+@media (max-width: 1000px) {
+  #search {
+    display: none;
+  }
+}
+
+#toggle {
+  color: #d3d3d3;
+  outline: none;
+}
 /*# sourceMappingURL=Navbar.css.map */

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import "../components/pages/styles/Filter.css";
+import { BiFilter } from "react-icons/bi";
 
 function Filter() {
   const [company, setCompany] = useState("Maruti");
@@ -9,12 +10,8 @@ function Filter() {
   const [price, setPrice] = useState("6");
   const [fuel, setFuel] = useState("Petrol");
 
-  const onClickHandle = () => {
-    console.log(company, category, transmission, price, fuel);
-  };
-
   return (
-    <div>
+    <div id="filter-options">
       <div>
         <select
           name="Company"
@@ -90,10 +87,9 @@ function Filter() {
         to={{
           pathname: `/filter/${transmission}/${category}/${company}/${price}/${fuel}`,
         }}
-        onClick={onClickHandle}
       >
-        <button variant="outlined-primary" id="link-filter">
-          Apply Filter
+        <button id="link-filter">
+          Apply Filter <BiFilter id="filter-icon" />
         </button>
       </Link>
     </div>

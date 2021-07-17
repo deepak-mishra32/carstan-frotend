@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import CarsDisplay from "./CarsDisplay";
 import { BASE_URL, PAGE_SIZE } from "../../utils/Constant";
 import "./styles/Filter.css";
+import MobileFilter from "../MobileFilter";
 
 function CarFetch(props) {
   const [cars, setCars] = useState([]);
@@ -34,9 +35,14 @@ function CarFetch(props) {
       <Row>
         <Col sm={12} md={2} lg={2}>
           {related ? null : (
-            <div id="filter">
-              <Filter />
-            </div>
+            <>
+              <div id="filter">
+                <Filter />
+              </div>
+              <div id="mobile-filter">
+                <MobileFilter />
+              </div>
+            </>
           )}
         </Col>
         <Col sm={12} md={10} lg={10}>

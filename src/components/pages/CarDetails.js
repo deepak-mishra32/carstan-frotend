@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import RelatedCars from "../RelatedCars";
@@ -12,25 +12,19 @@ import "./styles/CarDetails.css";
 import Alert from "react-bootstrap/Alert";
 import CarFetch from "./CarFetch";
 import { BsChevronDoubleDown } from "react-icons/bs";
+import Carousel from "react-bootstrap/Carousel";
 
 function CarDetails() {
   const [cars, setCars] = useState([]);
   const { name } = useParams();
   const [error, setError] = useState("");
-  const [image, setImage] = useState();
-
-  const onClickHandler = useCallback((new_image) => {
-    setImage(new_image);
-  }, []);
 
   useEffect(() => {
     axios
       .get(`${BASE_URL}/product/${name}`)
       .then((res) => {
-        console.log(res.data);
         setCars(res.data);
         setError("");
-        setImage(res.data.image1);
         window.scrollTo(0, 0);
       })
       .catch((err) => {
@@ -52,16 +46,14 @@ function CarDetails() {
         <Col sm={12} md={10} lg={10}>
           {error ? (
             <div id="no-cars">
-              <h3 id="not-avail-car">
-                {name} Currently Not Available :(
-              </h3>
+              <h3 id="not-avail-car">{name} Currently Not Available :(</h3>
               <h5 id="car-avail">
                 Cars Available with Us <br /> <BsChevronDoubleDown />{" "}
               </h5>
             </div>
           ) : (
             <Row>
-              <Col sm={12} md={6} lg={6} className="align-items-center">
+              <Col sm={12} md={6} lg={6}>
                 <div>
                   <div id="mobile-view-heading">
                     <Alert variant="dark">
@@ -70,46 +62,40 @@ function CarDetails() {
                       </h4>
                     </Alert>
                   </div>
-                  <img
-                    src={`${IMG_URL}${image}`}
-                    alt="Image1"
-                    class="img-fluid"
-                    id="Detail-img"
-                  />
-                </div>
-                <div className="thumbnails">
-                  {cars.image1 ? (
-                    <img
-                      src={`${IMG_URL}${cars.image1}`}
-                      id="img-gallery"
-                      alt="Image1"
-                      onClick={() => onClickHandler(cars.image1)}
-                    />
-                  ) : null}
-                  {cars.image2 ? (
-                    <img
-                      src={`${IMG_URL}${cars.image2}`}
-                      id="img-gallery"
-                      alt="Image2"
-                      onClick={() => onClickHandler(cars.image2)}
-                    />
-                  ) : null}
-                  {cars.image3 ? (
-                    <img
-                      src={`${IMG_URL}${cars.image3}`}
-                      id="img-gallery"
-                      alt="Image3"
-                      onClick={() => onClickHandler(cars.image3)}
-                    />
-                  ) : null}
-                  {cars.image4 ? (
-                    <img
-                      src={`${IMG_URL}${cars.image4}`}
-                      id="img-gallery"
-                      alt="Image4"
-                      onClick={() => onClickHandler(cars.image4)}
-                    />
-                  ) : null}
+                  <Carousel>
+                    <Carousel.Item interval={2000}>
+                      <img
+                        src={`${IMG_URL}${cars.image1}`}
+                        alt="Image1"
+                        class="img-fluid"
+                        id="Detail-img"
+                      />
+                    </Carousel.Item>
+                    <Carousel.Item interval={1000}>
+                      <img
+                        src={`${IMG_URL}${cars.image2}`}
+                        alt="Image1"
+                        class="img-fluid"
+                        id="Detail-img"
+                      />
+                    </Carousel.Item>
+                    <Carousel.Item interval={1000}>
+                      <img
+                        src={`${IMG_URL}${cars.image3}`}
+                        alt="Image1"
+                        class="img-fluid"
+                        id="Detail-img"
+                      />
+                    </Carousel.Item>
+                    <Carousel.Item interval={1000}>
+                      <img
+                        src={`${IMG_URL}${cars.image4}`}
+                        alt="Image1"
+                        class="img-fluid"
+                        id="Detail-img"
+                      />
+                    </Carousel.Item>
+                  </Carousel>
                 </div>
               </Col>
               <Col sm={12} md={6} lg={6}>

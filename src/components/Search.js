@@ -25,9 +25,7 @@ function Search() {
             pathname: `/product/${search}`,
           }}
         >
-          <Button id="search-btn" type="reset">
-            Search
-          </Button>
+          <Button id="search-btn">Search</Button>
         </Link>
       </Form>
     </div>

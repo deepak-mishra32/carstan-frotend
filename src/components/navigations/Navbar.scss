@@ -22,3 +22,12 @@
   padding: 4px;
   border-radius: 5%;
 }
+#search {
+  @media (max-width: 1000px) {
+    display: none;
+  }
+}
+#toggle {
+  color: #d3d3d3;
+  outline: none;
+}

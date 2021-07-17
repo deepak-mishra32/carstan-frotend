@@ -16,7 +16,7 @@ function CarsDisplay(props) {
       <Row>
         {cars.map((car) => (
           <Col sm={12} md={4} lg={4}>
-            <Card className="mb-4" id="class">
+            <Card className="mb-4" id="card">
               <Card.Img
                 className="img"
                 src={`${IMG_URL}${car.image1}`}

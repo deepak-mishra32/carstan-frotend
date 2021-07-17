@@ -11,9 +11,14 @@
 }
 
 #link-filter:hover {
-  text-shadow: 2px 2px 5px #ff0000;
+  text-shadow: 2px 2px 5px #000000;
   -webkit-box-shadow: 1px 1px 6px 1px black;
           box-shadow: 1px 1px 6px 1px black;
+}
+
+#link-filter:focus {
+  outline: none;
+  border: none;
 }
 
 #select {
@@ -26,5 +31,35 @@
   #filter {
     display: none;
   }
+}
+
+@media (min-width: 900px) {
+  #mobile-filter {
+    display: none;
+  }
+}
+
+#filter-icon {
+  background-color: inherit;
+  font-size: 18px;
+  color: white;
+}
+
+#mobile-link-filter {
+  background-color: #ba181b;
+  color: white;
+  border-radius: 5%;
+  border: none;
+  margin-bottom: 16px;
+}
+
+#mobile-link-filter:hover {
+  text-shadow: 2px 2px 5px #000000;
+  -webkit-box-shadow: 1px 1px 6px 1px black;
+          box-shadow: 1px 1px 6px 1px black;
+}
+
+#filter-dialouge {
+  margin: auto;
 }
 /*# sourceMappingURL=Filter.css.map */
